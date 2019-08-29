@@ -17,7 +17,7 @@ module.exports.fun = async (event, context, callback) => {
     let product_id = Number(event.path.id)
     let query = `
         SELECT rating,
-               COUNT(*)
+               COUNT(*) AS count
             FROM ratings.feedback
             WHERE product_id = ?
             GROUP BY rating
