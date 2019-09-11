@@ -98,11 +98,7 @@ functions:
               - phone_number
           cors:
             origins:
-              - '*.rapidobuild.com'
-              - 'rapidobuild.com'
-              - '*.execute-api.eu-west-2.amazonaws.com'
-              - '*.execute-api.eu-west-1.amazonaws.com'
-              - 'localhost'
+              - '*'
             headers:
               - Content-Type
               - Authorization
@@ -344,7 +340,11 @@ functions:
           integration: lambda
           cors:
             origins:
-              - '*'
+              - '*.rapidobuild.com'
+              - 'rapidobuild.com'
+              - '*.execute-api.eu-west-2.amazonaws.com'
+              - '*.execute-api.eu-west-1.amazonaws.com'
+              - 'http://localhost:4200'
             headers:
               - Content-Type
               - Authorization
