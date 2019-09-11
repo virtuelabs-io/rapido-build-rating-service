@@ -98,7 +98,10 @@ functions:
               - phone_number
           cors:
             origins:
-              - '*'
+              - '*.rapidobuild.com'
+              - 'rapidobuild.com'
+              - '*.execute-api.eu-west-2.amazonaws.com'
+              - '*.execute-api.eu-west-1.amazonaws.com'
             headers:
               - Content-Type
               - Authorization
