@@ -20,8 +20,8 @@ module.exports.fun = async (event, context, callback) => {
                COUNT(*) AS count
             FROM ratings.feedback
             WHERE product_id = ?
-            GROUP BY rating
-            AND active = TRUE;
+            AND   active = TRUE
+            GROUP BY rating;
     `;
     console.log("Running query", query);
     let results = await mysql.query(query, [
