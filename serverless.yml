@@ -344,6 +344,35 @@ functions:
             headers:
               - Content-Type
               - Authorization
+  checkProductReview:
+    name: checkProductReview-${self:provider.stage}
+    role: RatingsFunctionsLambdaRole
+    handler: src/ratings/checkProductReview.fun
+    memorySize: 128
+    timeout: 10
+    environment:
+      HOST: ${self:provider.host}
+      PORT: ${self:provider.port}
+      DATABASE: ${self:provider.database}
+      USERNAME: ${self:provider.username}
+      PASSWORD: ${self:provider.password}
+    tags:
+      purpose: lambda function to checkProductReview
+    events:
+      - http:
+          path: /ratings/product/check/{id}
+          method: get
+          request:
+            parameters:
+              paths:
+                id: true
+          integration: lambda
+          cors:
+            origins:
+              - '*'
+            headers:
+              - Content-Type
+              - Authorization
   getProductAvgRating:
     name: getProductAvgRating-${self:provider.stage}
     role: RatingsFunctionsLambdaRole
