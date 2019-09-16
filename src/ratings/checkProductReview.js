@@ -16,7 +16,7 @@ module.exports.fun = async (event, context, callback) => {
     let customer_id = event.cognitoPoolClaims.sub
     let product_id = Number(event.path.id)
     let query = `
-        SELECT active
+        SELECT id
             FROM ratings.feedback
             WHERE customer_id = ?
             AND   product_id = ?
