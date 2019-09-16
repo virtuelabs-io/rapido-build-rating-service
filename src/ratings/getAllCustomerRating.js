@@ -25,7 +25,9 @@ module.exports.fun = async (event, context, callback) => {
                updated_on
             FROM ratings.feedback
             WHERE customer_id = UUID_TO_BIN(?)
-            AND active = TRUE;
+            AND active = TRUE
+            ORDER BY updated_on DESC, created_on DESC
+            LIMIT 100;
     `;
     console.log("Running query", query);
     let results = await mysql.query(query, [
