@@ -21,7 +21,9 @@ module.exports.fun = async (event, context, callback) => {
                title,
                rating,
                summary,
-               helpful
+               helpful,
+               created_on,
+               updated_on
             FROM ratings.feedback
             WHERE id = ?
             AND customer_id = UUID_TO_BIN(?)
