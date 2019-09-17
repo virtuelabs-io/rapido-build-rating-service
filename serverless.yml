@@ -309,6 +309,11 @@ functions:
               paths:
                 id: true
           integration: lambda
+          authorizer:
+            name: authorizer
+            arn: ${self:provider.cognito-arn}
+            claims:
+              - phone_number
           cors:
             origins:
               - '*'
