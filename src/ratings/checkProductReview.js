@@ -18,7 +18,7 @@ module.exports.fun = async (event, context, callback) => {
     let query = `
         SELECT id
             FROM ratings.feedback
-            WHERE customer_id = ?
+            WHERE customer_id = UUID_TO_BIN(?)
             AND   product_id = ?
             AND active = TRUE;
     `;
